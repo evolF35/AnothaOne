@@ -44,6 +44,10 @@ contract Pool {
 
     AggregatorV3Interface public oracle;
 
+    function getCurrentRatio() public view returns (uint256){
+        return(numDepPos/numDepNeg);
+    }
+
     function getCondition() public view returns (bool){
         return(condition);
     }
@@ -77,11 +81,11 @@ contract Pool {
 
     function getDiscountedValue() public view returns (uint256){
         uint256 temp = block.timestamp - startDate;
-        uint256 end = ((temp*decayFactor)/86400);
+        uint256 dividedDecay = (decayFactor/100);
+        uint256 end = ((temp*dividedDecay)/86400);
         uint256 tots = 1-end;
         return(tots);
     }
-
 
     constructor(
         address _oracle, int256 _price, 

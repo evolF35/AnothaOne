@@ -18,9 +18,9 @@ async function main() {
       `deployed to ${lock.address}`
       );
 
-    let u = await lock.createPool("0x57241A37733983F97C4Ab06448F244A1E0Ca0ba8",2000,170000000)
+    //let u = await lock.createPool("0x57241A37733983F97C4Ab06448F244A1E0Ca0ba8",2000,170000000)
     
-    console.log(u);
+    //console.log(u);
 
     // contractBal = await hre.ethers.provider.getBalance(lock.address);
     // console.log(contractBal);

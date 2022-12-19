@@ -216,9 +216,19 @@ contract Pool {
 }
 
 contract deploy {
-    event PoolCreated(address _oracle, int256 _price, uint256 _settlementDate,uint256 decay,uint256 minRatio,uint256 minRatioDate,string name,string acronym,address poolAddress);
+    event PoolCreated(address _oracle, 
+    int256 _price, uint256 _settlementDate,
+    uint256 decay,uint256 minRatio,
+    uint256 minRatioDate,string name,
+    string acronym,address poolAddress);
 
-    function createPool(address oracle, int256 price, uint256 settlementDate,uint256 decay,uint256 minRatio,uint256 minRatioDate,string memory name,string memory acronym ) public returns (address newPool){
+    function createPool(address oracle, int256 price, 
+    uint256 settlementDate,uint256 decay,
+    uint256 minRatio,uint256 minRatioDate,
+    string memory name,string memory acronym ) 
+    
+    public returns (address newPool)
+    {
         newPool = address(new Pool(oracle,price,settlementDate,decay,minRatio,minRatioDate,name,acronym));
         emit PoolCreated(oracle,price,settlementDate,decay,minRatio,minRatioDate,name,acronym,newPool);
         return(newPool);

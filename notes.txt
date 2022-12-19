@@ -1,0 +1,32 @@
+function createPool(address oracle, int256 price, 
+    uint256 settlementDate,uint256 decay,
+    uint256 minRatio,uint256 minRatioDate,
+    string memory name,string memory acronym ) 
+
+
+so we have an: 
+
+oracle address
+settlement price
+settlement date
+
+decay factor
+min ratio factor
+min ratio date factor 
+
+name 
+acronym 
+
+----------------------------------------
+I had to add decay in order to prevent last minute depositing getting too much rewards
+ie depositing at the beginning gets you the most POS or NEG, wheras at the end you get less. 
+
+
+in the future: make the decay factor be able to change. ie polynomial or dependent on other variables / oracles lol.
+in the future: make a capital factor. Incentivize bigger deposits with more POS or NEG 
+
+// we can make capital factor like the decay factor in that it is variable, / polynomial 
+or even dependent on another oracle. 
+
+so make a decay and capital factor be from other oracle sources. 
+Which can be a volatility oracle or some weird function oracle. 
